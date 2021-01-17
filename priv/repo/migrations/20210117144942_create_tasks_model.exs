@@ -10,5 +10,10 @@ defmodule GeoTasks.Repo.Migrations.CreateTasksModel do
 
       timestamps()
     end
+
+    create index(:tasks, :pickup_lat)
+    create index(:tasks, :pickup_lon)
+    create index(:tasks, :delivery_lat)
+    create index(:tasks, :delivery_lon)
   end
 end
