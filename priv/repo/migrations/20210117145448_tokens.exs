@@ -9,5 +9,7 @@ defmodule GeoTasks.Repo.Migrations.Tokens do
 
       timestamps()
     end
+
+    create index(:tokens, :token, using: "HASH")
   end
 end

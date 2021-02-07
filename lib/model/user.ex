@@ -20,7 +20,7 @@ defmodule GeoTasks.Models.User do
 
   @allowed_roles ["driver", "manager"]
 
-  schema "tasks" do
+  schema "users" do
     field :name, :string
     field :role, :string
 

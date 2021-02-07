@@ -16,8 +16,16 @@ defmodule GeoTasks.MixProject do
   def application do
     [
       mod: {GeoTasks, []},
-      extra_applications: [:logger]
+      extra_applications: extra_applications(Mix.env())
     ]
+  end
+
+  def extra_applications(:test) do
+    [:ex_machina] ++ extra_applications(:regular)
+  end
+
+  def extra_applications(_) do
+    [:logger]
   end
 
   # Run "mix help deps" to learn about dependencies.
@@ -31,7 +39,9 @@ defmodule GeoTasks.MixProject do
       {:postgrex, ">= 0.0.0"},
       # Tools
       {:poison, "~> 4.0.1"},
-      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      # Testing
+      {:ex_machina, "~> 2.4", only: :test}
     ]
   end
 

@@ -4,7 +4,7 @@ defmodule GeoTasks.Repo.Migrations.CreateTasksUsersModel do
   def change do
     create table(:tasks_users) do
       add :user_id, references(:users)
-      add :task, references(:tasks)
+      add :task_id, references(:tasks)
       add :finished, :boolean, default: false
 
       timestamps()

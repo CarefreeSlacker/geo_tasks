@@ -9,20 +9,29 @@ defmodule GeoTasks.Router do
   plug :match
   plug :dispatch
 
+  # allowed Manager
+  post "/api/manager_tasks_list" do
+    send_resp(conn, 200, "manager_tasks_list")
+  end
+
+  # allowed Manager
+  post "/api/tasks" do
+    send_resp(conn, 200, "create_tasks")
+  end
+
+  # allowed Driver
   get "/api/tasks" do
-    send_resp(conn, 200, "response")
-    #    with {:ok, response} <- SearchIP.perform(conn.params["ip_address"]) do
-#      send_resp(conn, 200, response)
-#    else
-#      nil ->
-#        send_resp(conn, 402, "Please provide IP address")
-#      {:error, reason} when is_binary(reason) ->
-#        send_resp(conn, 402, "Error fetching geo data: #{reason}")
-#      {:error, :not_found} ->
-#        send_resp(conn, 404, "Network with given IP not found")
-#      {:error, reason} ->
-#        send_resp(conn, 500, "Unexpected error: #{inspect(reason)}")
-#    end
+    send_resp(conn, 200, "driver_tasks")
+  end
+
+  # allowed Driver
+  post "/api/assign_task" do
+    send_resp(conn, 200, "assign_task")
+  end
+
+  # allowed Driver
+  patch "/api/update_task_status" do
+    send_resp(conn, 200, "update_task_status")
   end
 
   match _ do

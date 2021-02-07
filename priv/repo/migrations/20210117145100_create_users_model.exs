@@ -8,5 +8,7 @@ defmodule GeoTasks.Repo.Migrations.CreateUsersModel do
 
       timestamps()
     end
+
+    create unique_index(:users, :name)
   end
 end
